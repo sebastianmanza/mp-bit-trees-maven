@@ -199,10 +199,10 @@ public class BrailleAsciiTables {
   // +----------------+
 
   /**
-   * Loads a bit tree to convert a char to a
+   * Loads a bit tree to convert a char to a braille sequence.
    * 
    * @param letter A char input.
-   * @return
+   * @return a braille string
    */
   public static String toBraille(char letter) {
     // Make sure we've loaded the ASCII-to-braille tree.
@@ -219,15 +219,17 @@ public class BrailleAsciiTables {
     String binStr = Integer.toBinaryString((int) letter);
     StringBuilder binString = new StringBuilder();
 
-    for (int i =0; i < (8 - binStr.length()); i++) {
+    for (int i = 0; i < (8 - binStr.length()); i++) {
       binString.append("0");
-    }
+    } //for
     binString.append(binStr);
     return a2bTree.get(binString.toString());
   } // toBraille(char)
 
   /**
-   *
+   * Loads a bit tree to convert braille to ascii.
+   * @param bits The bits we are converting.
+   * @return A string in Ascii.
    */
   public static String toAscii(String bits) {
     // Make sure we've loaded the braille-to-ASCII tree.
@@ -245,7 +247,9 @@ public class BrailleAsciiTables {
   } // toAscii(String)
 
   /**
-   *
+   * Load a bit tree to convert a string of bits to a unicode char.
+   * @param bits The string of bits.
+   * @return a String representation of a unicode char.
    */
   public static String toUnicode(String bits) {
     // Make sure we've loaded the braille-to-unicode tree.
@@ -256,10 +260,9 @@ public class BrailleAsciiTables {
       try {
         b2uStream.close();
       } catch (IOException e) {
-      // We don't care if we can't close the stream.
+        // We don't care if we can't close the stream.
       } // try/catch
-    }
+    } //if
     return b2uTree.get(bits);
   } // toUnicode(String)
-}
-// BrailleAsciiTables
+} // BrailleAsciiTables

@@ -19,7 +19,7 @@ public class BitTree {
   /** The depth of the bit tree. */
   int size;
 
-  /** The root of the tree */
+  /** The root of the tree. */
   BitNode root;
 
   // +--------------+------------------------------------------------
@@ -49,7 +49,7 @@ public class BitTree {
     /* Recursively search the children nodes */
     dumpHelper(pen, node.left, path.append('0'));
     dumpHelper(pen, node.right, path.append('1'));
-  } //dumpHelper(PrintWriter, BitNode, StringBuilder)
+  } // dumpHelper(PrintWriter, BitNode, StringBuilder)
 
   // +---------+-----------------------------------------------------
   // | Methods |
@@ -132,7 +132,9 @@ public class BitTree {
   } // dump(PrintWriter)
 
   /**
-   *
+   * Load a tree from a source.
+   * 
+   * @param source The string to load from.
    */
   public void load(InputStream source) {
     BufferedReader eyes = new BufferedReader(new InputStreamReader(source));
